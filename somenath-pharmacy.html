@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Somenath Pharmacy – X-Ray & Blood Test Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #1a3d2b;
+  --green-mid: #2d6a4f;
+  --green-light: #52b788;
+  --gold: #d4a853;
+  --gold-light: #f0c97a;
+  --cream: #f8f4ed;
+  --cream2: #f0ebe0;
+  --text-dark: #1a1a1a;
+  --text-mid: #444;
+  --text-light: #888;
+  --white: #ffffff;
+  --red: #e63946;
+  --orange: #f4a261;
+  --card-bg: #ffffff;
+  --section-alt: #f4f7f5;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--white);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.08);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:40px;height:40px;background:linear-gradient(135deg,var(--green-mid),var(--green-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.nav-brand-text{line-height:1.1}
+.nav-brand-text h1{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--green-dark)}
+.nav-brand-text span{font-size:11px;color:var(--text-light)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{text-decoration:none;color:var(--text-mid);font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--green-mid)}
+.nav-btn{background:var(--green-dark);color:white;border:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s}
+.nav-btn:hover{background:var(--green-mid)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:var(--green-dark);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:white;border-bottom:1px solid #eee;z-index:999;padding:20px 24px;flex-direction:column;gap:16px}
+.mobile-menu a{text-decoration:none;color:var(--text-dark);font-weight:500;padding:8px 0;border-bottom:1px solid #f0f0f0}
+.mobile-menu.open{display:flex}
+
+/* HERO */
+#home{margin-top:64px;min-height:calc(100vh - 64px);background:var(--green-dark);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:60px 24px 40px}
+.hero-bg-pattern{position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle at 2px 2px,white 1px,transparent 0);background-size:32px 32px}
+.hero-glow{position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(82,183,136,.25),transparent 70%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(212,168,83,.15),transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;margin-bottom:24px;letter-spacing:.5px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(38px,8vw,68px);font-weight:900;color:white;line-height:1.05;margin-bottom:20px}
+.hero-title em{color:var(--gold);font-style:normal}
+.hero-desc{color:rgba(255,255,255,.75);font-size:17px;line-height:1.7;max-width:540px;margin-bottom:16px}
+.hero-quote{border-left:3px solid var(--gold);padding:14px 18px;background:rgba(255,255,255,.06);border-radius:0 8px 8px 0;margin-bottom:36px;max-width:540px}
+.hero-quote p{color:rgba(255,255,255,.7);font-style:italic;font-size:14px;line-height:1.6}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--green-dark);padding:14px 28px;border-radius:10px;font-weight:700;font-size:15px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:white;padding:14px 28px;border-radius:10px;font-weight:600;font-size:15px;border:2px solid rgba(255,255,255,.4);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:white;background:rgba(255,255,255,.1)}
+.hero-info-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:24px;margin-top:48px;max-width:600px}
+.hero-info-card h3{color:var(--gold);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.info-rows{display:flex;flex-direction:column;gap:12px}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+.info-row:last-child{border-bottom:none;padding-bottom:0}
+.info-row .label{color:rgba(255,255,255,.55);font-size:14px}
+.info-row .val{color:white;font-size:14px;font-weight:600}
+.contact-block{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
+.contact-block .phone{font-family:'Playfair Display',serif;font-size:26px;color:var(--gold);font-weight:700;margin-bottom:2px}
+.contact-block .owner{color:rgba(255,255,255,.5);font-size:13px}
+
+/* SECTION COMMON */
+section{padding:80px 24px}
+.container{max-width:900px;margin:0 auto}
+.section-tag{display:inline-flex;align-items:center;gap:6px;background:var(--green-dark);color:white;font-size:11px;font-weight:600;letter-spacing:1.5px;padding:5px 12px;border-radius:20px;text-transform:uppercase;margin-bottom:16px}
+.section-tag.light{background:var(--section-alt);color:var(--green-dark);border:1px solid rgba(45,106,79,.2)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--green-dark);margin-bottom:10px;line-height:1.2}
+.section-desc{color:var(--text-mid);font-size:16px;line-height:1.6;margin-bottom:48px;max-width:600px}
+
+/* SERVICES */
+#services{background:var(--section-alt)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.service-card{background:white;border-radius:16px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:all .25s;border:1px solid transparent}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.1);border-color:var(--green-light)}
+.service-icon{width:56px;height:56px;border-radius:14px;background:var(--section-alt);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px}
+.service-card h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--green-dark);margin-bottom:8px}
+.service-card p{color:var(--text-mid);font-size:14px;line-height:1.6}
+
+/* MEDICINES */
+#medicines{background:var(--green-dark)}
+#medicines .section-title{color:white}
+#medicines .section-desc{color:rgba(255,255,255,.65)}
+#medicines .section-tag{background:rgba(255,255,255,.15);color:white}
+.medicine-controls{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.search-box{flex:1;min-width:200px;position:relative}
+.search-box input{width:100%;padding:12px 16px 12px 42px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border .2s}
+.search-box input::placeholder{color:rgba(255,255,255,.4)}
+.search-box input:focus{border-color:var(--green-light)}
+.search-box .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.4);font-size:16px}
+.filter-select{padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;cursor:pointer}
+.filter-select option{background:var(--green-dark);color:white}
+.medicine-table{width:100%;border-collapse:collapse;background:rgba(255,255,255,.05);border-radius:14px;overflow:hidden}
+.medicine-table thead tr{background:rgba(255,255,255,.08)}
+.medicine-table th{padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.medicine-table td{padding:14px 16px;font-size:14px;color:rgba(255,255,255,.85);border-top:1px solid rgba(255,255,255,.06)}
+.medicine-table tbody tr:hover{background:rgba(255,255,255,.04)}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.badge-available{background:rgba(82,183,136,.2);color:#52b788}
+.badge-limited{background:rgba(244,162,97,.2);color:#f4a261}
+.badge-out{background:rgba(230,57,70,.2);color:#e63946}
+.medicine-note{color:rgba(255,255,255,.4);font-size:12px;margin-top:14px;font-style:italic}
+
+/* DOCTORS */
+#doctors{background:var(--section-alt)}
+.doctors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px}
+.doctor-card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:.25s}
+.doctor-card:hover{transform:translateY(-4px);box-shadow:0 10px 36px rgba(0,0,0,.12)}
+.doctor-card-header{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));padding:28px;text-align:center}
+.doctor-avatar{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.15);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:34px;border:3px solid rgba(255,255,255,.3)}
+.doctor-card-header h3{font-family:'Playfair Display',serif;font-size:20px;color:white;font-weight:700;margin-bottom:4px}
+.doctor-card-header .spec{color:rgba(255,255,255,.7);font-size:13px}
+.doctor-card-body{padding:20px}
+.doctor-meta{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.doctor-meta-row{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-mid)}
+.doctor-meta-row .icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.book-btn{width:100%;padding:12px;background:var(--section-alt);border:1.5px solid var(--green-mid);color:var(--green-dark);border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.book-btn:hover{background:var(--green-dark);color:white}
+.doctor-note{color:var(--text-light);font-size:12px;margin-top:20px;font-style:italic}
+
+/* GALLERY */
+#gallery{background:white}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-item{border:2px dashed #ddd;border-radius:14px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--section-alt);color:var(--text-light);font-size:13px;font-weight:500;transition:.2s;cursor:default}
+.gallery-item:hover{border-color:var(--green-light);background:#edf5f0}
+.gallery-item .gicon{font-size:36px}
+.gallery-admin-note{background:var(--section-alt);border:1px solid #ddd;border-radius:10px;padding:14px 18px;margin-top:16px;font-size:13px;color:var(--text-mid);text-align:center}
+
+/* REVIEWS */
+#reviews{background:var(--section-alt)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;margin-bottom:48px}
+.review-card{background:white;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.stars{color:var(--gold);font-size:18px;margin-bottom:12px;letter-spacing:2px}
+.review-text{font-style:italic;color:var(--text-mid);font-size:14px;line-height:1.7;margin-bottom:16px}
+.review-author{display:flex;align-items:center;gap:10px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:var(--section-alt);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.review-author .name{font-weight:600;font-size:14px;color:var(--green-dark)}
+.review-author .date{font-size:12px;color:var(--text-light)}
+
+/* FEEDBACK FORM */
+.feedback-form-wrap{background:white;border-radius:18px;padding:36px;box-shadow:0 4px 24px rgba(0,0,0,.07);max-width:640px;margin:0 auto}
+.feedback-form-wrap h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--green-dark);margin-bottom:6px}
+.feedback-form-wrap p{color:var(--text-mid);font-size:14px;margin-bottom:28px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:7px;letter-spacing:.3px}
+.form-group input,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text-dark);transition:border .2s;outline:none;resize:vertical}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--green-mid)}
+.form-group textarea{min-height:110px}
+.star-rating{display:flex;gap:8px;flex-direction:row-reverse;justify-content:flex-end}
+.star-rating input{display:none}
+.star-rating label{font-size:28px;color:#ddd;cursor:pointer;transition:color .15s}
+.star-rating label:hover,.star-rating label:hover~label,.star-rating input:checked~label{color:var(--gold)}
+.upload-area{border:2px dashed #ccc;border-radius:10px;padding:28px;text-align:center;cursor:pointer;transition:.2s;background:var(--section-alt)}
+.upload-area:hover{border-color:var(--green-mid);background:#edf5f0}
+.upload-area p{color:var(--text-light);font-size:13px}
+.submit-btn{width:100%;padding:14px;background:var(--green-dark);color:white;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.2s;margin-top:8px}
+.submit-btn:hover{background:var(--green-mid)}
+.success-msg{display:none;background:#edf7f2;border:1.5px solid var(--green-light);border-radius:10px;padding:14px 18px;color:var(--green-mid);font-weight:600;font-size:14px;text-align:center;margin-top:14px}
+
+/* HEALTH WISDOM */
+#wisdom{background:white}
+.wisdom-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.wisdom-card{border-left:4px solid var(--green-light);border-radius:0 14px 14px 0;padding:22px;background:var(--section-alt);transition:.2s}
+.wisdom-card:hover{background:#e8f2ec;border-color:var(--green-mid)}
+.wisdom-card .wicon{font-size:28px;margin-bottom:12px}
+.wisdom-card h4{font-family:'Playfair Display',serif;font-size:16px;color:var(--green-dark);margin-bottom:8px;font-weight:700}
+.wisdom-card p{font-size:13px;color:var(--text-mid);line-height:1.65;font-style:italic}
+
+/* CONTACT */
+#contact{background:var(--green-dark)}
+#contact .section-title{color:white}
+#contact .section-desc{color:rgba(255,255,255,.6)}
+#contact .section-tag{background:rgba(255,255,255,.12);color:white}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.contact-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;display:flex;align-items:flex-start;gap:14px;transition:.2s}
+.contact-card:hover{background:rgba(255,255,255,.1)}
+.contact-card-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.contact-card-info .clabel{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:5px}
+.contact-card-info .cval{font-size:15px;color:white;font-weight:500;line-height:1.5}
+.map-placeholder{background:rgba(255,255,255,.05);border:2px dashed rgba(255,255,255,.15);border-radius:14px;padding:48px 24px;text-align:center;margin-top:32px}
+.map-placeholder .map-icon{font-size:48px;margin-bottom:14px}
+.map-placeholder p{color:rgba(255,255,255,.5);font-size:14px;margin-bottom:6px}
+.map-placeholder small{color:rgba(255,255,255,.3);font-size:12px}
+.map-open-btn{display:inline-flex;align-items:center;gap:6px;margin-top:16px;background:var(--green-mid);color:white;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:.2s}
+.map-open-btn:hover{background:var(--green-light)}
+
+/* FOOTER */
+footer{background:#0f2419;padding:48px 24px 28px;text-align:center}
+.footer-brand{font-family:'Playfair Display',serif;font-size:22px;color:white;font-weight:700;margin-bottom:4px}
+.footer-brand span{font-size:14px;color:rgba(255,255,255,.4);display:block;font-family:'DM Sans',sans-serif;font-weight:400;margin-top:2px}
+.footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin:20px 0;padding:20px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-links a{color:rgba(255,255,255,.5);font-size:13px;text-decoration:none;transition:.2s}
+.footer-links a:hover{color:white}
+.footer-domains{color:rgba(255,255,255,.3);font-size:12px;margin-bottom:12px}
+.footer-copy{color:rgba(255,255,255,.25);font-size:12px;margin-bottom:20px}
+.admin-login-btn{background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.5);padding:8px 18px;border-radius:8px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.2s}
+.admin-login-btn:hover{border-color:rgba(255,255,255,.5);color:white}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:2000;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal{background:white;border-radius:20px;padding:36px;width:100%;max-width:400px;position:relative;animation:modalIn .25s ease}
+@keyframes modalIn{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-light);line-height:1}
+.modal h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--green-dark);margin-bottom:6px}
+.modal p{color:var(--text-mid);font-size:14px;margin-bottom:24px}
+.modal .form-group input{width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;margin:0;outline:none;transition:.2s}
+.modal .form-group input:focus{border-color:var(--green-mid)}
+.modal-btn{width:100%;padding:13px;background:var(--green-dark);color:white;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:4px;transition:.2s}
+.modal-btn:hover{background:var(--green-mid)}
+.modal-error{background:#fde8ea;border-radius:8px;padding:10px 14px;color:var(--red);font-size:13px;margin-top:12px;display:none}
+.modal-tabs{display:flex;gap:0;margin-bottom:24px;border:1.5px solid #e0e0e0;border-radius:10px;overflow:hidden}
+.modal-tab{flex:1;padding:10px;background:white;border:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:.2s}
+.modal-tab.active{background:var(--green-dark);color:white}
+
+/* ADMIN PANEL */
+#admin-panel{display:none;position:fixed;inset:0;background:white;z-index:3000;overflow-y:auto}
+.admin-header{background:var(--green-dark);color:white;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.admin-header h2{font-family:'Playfair Display',serif;font-size:18px}
+.admin-close-btn{background:rgba(255,255,255,.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px}
+.admin-body{max-width:860px;margin:0 auto;padding:32px 24px}
+.admin-section{background:white;border:1.5px solid #e8e8e8;border-radius:16px;padding:28px;margin-bottom:24px}
+.admin-section h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--green-dark);margin-bottom:20px;padding-bottom:12px;border-bottom:1.5px solid #f0f0f0}
+.admin-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.admin-field{flex:1;min-width:200px}
+.admin-field label{display:block;font-size:12px;font-weight:600;color:var(--text-mid);margin-bottom:6px;letter-spacing:.3px}
+.admin-field input,.admin-field select,.admin-field textarea{width:100%;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:.2s}
+.admin-field input:focus,.admin-field select:focus,.admin-field textarea:focus{border-color:var(--green-mid)}
+.admin-save-btn{background:var(--green-dark);color:white;border:none;padding:11px 22px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.2s}
+.admin-save-btn:hover{background:var(--green-mid)}
+.admin-save-btn.danger{background:#e63946}
+.admin-save-btn.danger:hover{background:#c1121f}
+.admin-table{width:100%;border-collapse:collapse;margin-bottom:16px}
+.admin-table th{text-align:left;padding:10px 12px;font-size:12px;font-weight:600;color:var(--text-mid);letter-spacing:.5px;text-transform:uppercase;background:var(--section-alt);border-bottom:1.5px solid #e0e0e0}
+.admin-table td{padding:10px 12px;font-size:13px;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.admin-table tr:last-child td{border-bottom:none}
+.status-select{padding:5px 10px;border-radius:6px;border:1.5px solid #e0e0e0;font-size:12px;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer}
+.admin-tag{background:var(--section-alt);border:1.5px solid #e0e0e0;color:var(--text-mid);padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s}
+.admin-tag:hover{background:#e8f2ec;border-color:var(--green-light);color:var(--green-dark)}
+.admin-tag.remove{color:var(--red);background:#fde8ea;border-color:var(--red)}
+.admin-add-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.admin-add-row input{flex:1;min-width:140px;padding:9px 13px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none}
+.admin-add-row input:focus{border-color:var(--green-mid)}
+.admin-add-btn{background:var(--green-mid);color:white;border:none;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:.2s}
+.admin-add-btn:hover{background:var(--green-dark)}
+.admin-saved-toast{position:fixed;bottom:24px;right:24px;background:var(--green-dark);color:white;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;z-index:9999;opacity:0;transform:translateY(10px);transition:.3s;pointer-events:none}
+.admin-saved-toast.show{opacity:1;transform:translateY(0)}
+.admin-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:24px;background:var(--section-alt);border-radius:10px;padding:4px}
+.admin-tab-btn{padding:9px 16px;border:none;background:none;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:.2s;color:var(--text-mid)}
+.admin-tab-btn.active{background:white;color:var(--green-dark);font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.admin-tab-content{display:none}
+.admin-tab-content.active{display:block}
+.admin-info-box{background:#fff8e1;border:1.5px solid #ffe082;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#856404}
+
+/* SCROLL TO TOP */
+.scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--green-dark);color:white;border:none;border-radius:12px;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:500;transition:.2s;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.scroll-top:hover{background:var(--green-mid)}
+.scroll-top.visible{display:flex}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .admin-row{flex-direction:column}
+  .admin-add-row{flex-direction:column}
+  .medicine-table th:nth-child(1),.medicine-table td:nth-child(1){display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">💊</div>
+    <div class="nav-brand-text">
+      <h1>Somenath Pharmacy</h1>
+      <span>X-Ray & Blood Test Centre</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#medicines">Medicines</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-btn" onclick="openAdminModal()">🔐 Admin</button>
+  <button class="hamburger" onclick="toggleMobileMenu()" id="hamburgerBtn">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMobileMenu()">Home</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#medicines" onclick="closeMobileMenu()">Medicines</a>
+  <a href="#doctors" onclick="closeMobileMenu()">Doctors</a>
+  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#" onclick="openAdminModal();closeMobileMenu()">🔐 Admin Login</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="hero-badge">✦ Trusted Since Establishment · Kolkata</div>
+    <h1 class="hero-title">Your Health Is Our<br><em>First Priority</em></h1>
+    <p class="hero-desc">Somenath Pharmacy offers a complete healthcare experience — from quality medicines and pathology blood tests to advanced X-Ray diagnostics, all under one roof.</p>
+    <div class="hero-quote">
+      <p>"Good health is not something we can buy. However, it can be an extremely valuable savings account." — Anne Wilson Schaef</p>
+    </div>
+    <div class="hero-buttons">
+      <a href="#medicines" class="btn-primary">💊 View Medicines</a>
+      <a href="#doctors" class="btn-outline">🩺 Visiting Doctors</a>
+    </div>
+    <div class="hero-info-card">
+      <h3>📍 Address & Hours</h3>
+      <div class="info-rows">
+        <div class="info-row">
+          <span class="label">Address</span>
+          <span class="val" id="hero-address">To be updated by admin</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Monday – Saturday</span>
+          <span class="val" id="hero-mon-sat">7:00 AM – 9:00 PM</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Sunday</span>
+          <span class="val" id="hero-sunday">8:00 AM – 2:00 PM</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Emergency</span>
+          <span class="val">On Call</span>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="phone" id="hero-phone">📞 <span id="phone-display">—</span></div>
+        <div class="owner">Owner: Somenath Mondal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-tag light">🏥 What We Offer</div>
+    <h2 class="section-title">Our Healthcare Services</h2>
+    <p class="section-desc">Complete diagnostic and pharmaceutical care available at Somenath Pharmacy.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💊</div>
+        <h3>Medicines & Pharma</h3>
+        <p>Wide range of prescription and OTC medicines, generic drugs, vitamins, supplements, and healthcare products — all sourced from certified manufacturers.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🩻</div>
+        <h3>X-Ray Diagnostics</h3>
+        <p>Digital X-Ray services for chest, bone, joints, and more. Quick results, minimal wait time, and expert radiologist interpretation available.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🩸</div>
+        <h3>Blood Tests</h3>
+        <p>Comprehensive blood testing including CBC, sugar, lipid profile, thyroid, kidney function, liver function tests, and many more at affordable rates.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🩺</div>
+        <h3>Doctor Consultation</h3>
+        <p>Visiting specialist doctors available on scheduled days. Get expert medical advice without the hassle of travelling to distant hospitals.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Home Sample Collection</h3>
+        <p>Can't visit? Our trained staff will collect blood or other samples from your home at a convenient time. Call to schedule.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Health Reports</h3>
+        <p>Fast delivery of diagnostic reports. Digital copies sent via WhatsApp/email. Hard copies available for collection at the pharmacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDICINES -->
+<section id="medicines">
+  <div class="container">
+    <div class="section-tag">💊 Inventory</div>
+    <h2 class="section-title">Medicine Availability</h2>
+    <p class="section-desc">Search and check availability of medicines at our pharmacy.</p>
+    <div class="medicine-controls">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="med-search" placeholder="Search medicine name..." oninput="filterMedicines()">
+      </div>
+      <select class="filter-select" id="med-filter" onchange="filterMedicines()">
+        <option value="">All Categories</option>
+        <option>Pain Relief</option>
+        <option>Antibiotic</option>
+        <option>Diabetes</option>
+        <option>Blood Pressure</option>
+        <option>Allergy</option>
+        <option>Antacid</option>
+        <option>Vitamins</option>
+      </select>
+    </div>
+    <table class="medicine-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Medicine Name</th>
+          <th>Category</th>
+          <th>Availability</th>
+        </tr>
+      </thead>
+      <tbody id="medicine-tbody"></tbody>
+    </table>
+    <p class="medicine-note">* Availability updated by admin. Call <span id="contact-phone-inline">our pharmacy</span> for urgent medicine inquiries. Prescription required for Rx medicines.</p>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors">
+  <div class="container">
+    <div class="section-tag light">🩺 Expert Care</div>
+    <h2 class="section-title">Visiting Doctors</h2>
+    <p class="section-desc">Experienced specialists who visit our pharmacy on scheduled days for your convenience.</p>
+    <div class="doctors-grid" id="doctors-grid"></div>
+    <p class="doctor-note">* Doctor schedules may change. Please call ahead to confirm availability. Admin can update doctor details.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-tag light">📸 Our Pharmacy</div>
+    <h2 class="section-title">Shop Gallery</h2>
+    <p class="section-desc">Photos of our pharmacy and facilities.</p>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item"><span class="gicon">🏪</span><span>Shop Front</span></div>
+      <div class="gallery-item"><span class="gicon">💊</span><span>Medicine Counter</span></div>
+      <div class="gallery-item"><span class="gicon">🩻</span><span>X-Ray Room</span></div>
+      <div class="gallery-item"><span class="gicon">🩸</span><span>Lab Section</span></div>
+      <div class="gallery-item"><span class="gicon">🏥</span><span>Doctor Cabin</span></div>
+      <div class="gallery-item"><span class="gicon">📦</span><span>Storage Area</span></div>
+    </div>
+    <div class="gallery-admin-note">📌 Upload real shop photos via the Admin Panel. Photo placeholders will be replaced automatically.</div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-tag light">⭐ Reviews</div>
+    <h2 class="section-title">What Our Customers Say</h2>
+    <p class="section-desc">Real feedback from our valued customers and patients.</p>
+    <div class="reviews-grid" id="reviews-grid"></div>
+    <div class="feedback-form-wrap">
+      <h3>Share Your Experience</h3>
+      <p>We'd love to hear your feedback about our pharmacy and services.</p>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="fb-name" placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label>Rating</label>
+        <div class="star-rating" id="star-rating">
+          <input type="radio" id="s5" name="rating" value="5"><label for="s5">★</label>
+          <input type="radio" id="s4" name="rating" value="4"><label for="s4">★</label>
+          <input type="radio" id="s3" name="rating" value="3"><label for="s3">★</label>
+          <input type="radio" id="s2" name="rating" value="2"><label for="s2">★</label>
+          <input type="radio" id="s1" name="rating" value="1"><label for="s1">★</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Your Feedback</label>
+        <textarea id="fb-text" placeholder="Tell us about your experience..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Upload Photo / Video (optional)</label>
+        <div class="upload-area" onclick="document.getElementById('fb-file').click()">
+          <p>📎 Click to upload photo or video</p>
+          <p id="fb-file-name" style="color:var(--green-mid);font-size:12px;margin-top:4px"></p>
+        </div>
+        <input type="file" id="fb-file" accept="image/*,video/*" style="display:none" onchange="document.getElementById('fb-file-name').textContent=this.files[0]?.name||''">
+      </div>
+      <button class="submit-btn" onclick="submitFeedback()">✉️ Submit Feedback</button>
+      <div class="success-msg" id="fb-success">✅ Thank you! Your feedback has been submitted successfully.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WISDOM -->
+<section id="wisdom">
+  <div class="container">
+    <div class="section-tag light">🌿 Health Wisdom</div>
+    <h2 class="section-title">Words That Heal</h2>
+    <p class="section-desc">Inspiring thoughts to keep you motivated on your health journey.</p>
+    <div class="wisdom-grid">
+      <div class="wisdom-card"><div class="wicon">🌱</div><h4>Prevention First</h4><p>"An ounce of prevention is worth a pound of cure. Take care of your body — it's the only place you have to live."</p></div>
+      <div class="wisdom-card"><div class="wicon">💧</div><h4>Stay Hydrated</h4><p>"Water is the driving force of all nature. Drinking enough water daily is the simplest act of self-care."</p></div>
+      <div class="wisdom-card"><div class="wicon">🧘</div><h4>Mind & Body</h4><p>"The greatest wealth is health. A calm mind brings inner strength and self-confidence — very important for good health."</p></div>
+      <div class="wisdom-card"><div class="wicon">🔬</div><h4>Early Detection</h4><p>"Regular check-ups and early testing save lives. Don't wait for illness to visit the doctor — prevention is the best medicine."</p></div>
+      <div class="wisdom-card"><div class="wicon">❤️</div><h4>Love Your Body</h4><p>"Health is not just about what you eat. It is also about what you think and feel. Take care of your whole self."</p></div>
+      <div class="wisdom-card"><div class="wicon">🌞</div><h4>Daily Wellness</h4><p>"Take care of your body. It's the only home you have. Small daily habits create big health transformations over time."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-tag">📍 Find Us</div>
+    <h2 class="section-title">Contact & Location</h2>
+    <p class="section-desc">Visit us or call us anytime during business hours.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-info">
+          <div class="clabel">Address</div>
+          <div class="cval" id="contact-address">Address will be updated by admin. Please call to get directions.</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🕐</div>
+        <div class="contact-card-info">
+          <div class="clabel">Opening Hours</div>
+          <div class="cval">Mon–Sat: <span id="c-mon-sat">7:00 AM – 9:00 PM</span><br>Sunday: <span id="c-sunday">8:00 AM – 2:00 PM</span></div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <div class="contact-card-info">
+          <div class="clabel">Phone Number</div>
+          <div class="cval" id="contact-phone-val">—</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">👤</div>
+        <div class="contact-card-info">
+          <div class="clabel">Owner / Pharmacist</div>
+          <div class="cval">Somenath Mondal</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">💬</div>
+        <div class="contact-card-info">
+          <div class="clabel">WhatsApp</div>
+          <div class="cval">Available on request. Call first.</div>
+        </div>
+      </div>
+    </div>
+    <div class="map-placeholder" id="map-area">
+      <div class="map-icon">🗺️</div>
+      <p>Google Maps will appear here once the address is added by admin.</p>
+      <small>Admin can add the full address and the Google Maps embed link will be activated automatically.</small>
+      <br>
+      <button class="map-open-btn" id="maps-btn" onclick="openGoogleMaps()">📍 Open in Google Maps</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">💊 Somenath Pharmacy<span>X-Ray & Blood Test Centre · Est. by Somenath Mondal</span></div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#medicines">Medicines</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-domains">somenath.pharmacy.com · somenath.pharmacy.in · somenath.pharmacy.xray.in · somenath.pharmacy.xray.com</div>
+  <div class="footer-copy">© 2025 Somenath Pharmacy. All rights reserved.</div>
+  <button class="admin-login-btn" onclick="openAdminModal()">🔐 Admin Login</button>
+</footer>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="modal-overlay" id="admin-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeAdminModal()">✕</button>
+    <h2>🔐 Admin Login</h2>
+    <p>Enter your mobile number and password to access the admin panel.</p>
+    <div class="form-group" style="margin-bottom:16px">
+      <label style="font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:7px;display:block">Mobile Number</label>
+      <input type="tel" id="login-mobile" placeholder="Enter mobile number" style="width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none">
+    </div>
+    <div class="form-group" style="margin-bottom:16px">
+      <label style="font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:7px;display:block">Password</label>
+      <input type="password" id="login-password" placeholder="Enter password" style="width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="modal-btn" onclick="doLogin()">Login to Admin Panel</button>
+    <div class="modal-error" id="login-error">❌ Invalid mobile number or password.</div>
+    <div style="text-align:center;margin-top:16px">
+      <a href="#" onclick="showForgotPassword()" style="color:var(--green-mid);font-size:13px;text-decoration:none">Forgot Password?</a>
+    </div>
+  </div>
+</div>
+
+<!-- FORGOT PASSWORD MODAL -->
+<div class="modal-overlay" id="forgot-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('forgot-modal').classList.remove('open')">✕</button>
+    <h2>Reset Password</h2>
+    <p>Enter your details to verify and reset your password.</p>
+    <div class="form-group" style="margin-bottom:14px">
+      <label style="font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:7px;display:block">Document Number 1</label>
+      <input type="text" id="fp-doc1" placeholder="Document Number 1" style="width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none">
+    </div>
+    <div class="form-group" style="margin-bottom:14px">
+      <label style="font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:7px;display:block">Document Number 2</label>
+      <input type="text" id="fp-doc2" placeholder="Document Number 2" style="width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none">
+    </div>
+    <div class="form-group" style="margin-bottom:14px">
+      <label style="font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:7px;display:block">Date of Birth (DD-MM-YYYY)</label>
+      <input type="text" id="fp-dob" placeholder="DD-MM-YYYY" style="width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none">
+    </div>
+    <div class="form-group" style="margin-bottom:14px">
+      <label style="font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:7px;display:block">Mobile Number</label>
+      <input type="tel" id="fp-mobile" placeholder="Mobile number" style="width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none">
+    </div>
+    <div id="fp-new-pass-wrap" style="display:none;margin-bottom:14px">
+      <label style="font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:7px;display:block">New Password</label>
+      <input type="password" id="fp-new-pass" placeholder="Enter new password" style="width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none">
+    </div>
+    <button class="modal-btn" id="fp-btn" onclick="doForgotPassword()">Verify & Reset</button>
+    <div class="modal-error" id="fp-error" style="display:none"></div>
+    <div id="fp-success-msg" style="display:none;background:#edf7f2;border:1.5px solid var(--green-light);border-radius:10px;padding:14px;color:var(--green-mid);font-weight:600;font-size:14px;text-align:center;margin-top:12px">✅ Password reset successfully!</div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="admin-header">
+    <h2>💊 Somenath Pharmacy — Admin Panel</h2>
+    <button class="admin-close-btn" onclick="closeAdminPanel()">✕ Close</button>
+  </div>
+  <div class="admin-body">
+    <div class="admin-tabs">
+      <button class="admin-tab-btn active" onclick="switchTab('tab-info')">📋 Business Info</button>
+      <button class="admin-tab-btn" onclick="switchTab('tab-medicines')">💊 Medicines</button>
+      <button class="admin-tab-btn" onclick="switchTab('tab-doctors')">🩺 Doctors</button>
+      <button class="admin-tab-btn" onclick="switchTab('tab-reviews')">⭐ Reviews</button>
+      <button class="admin-tab-btn" id="tab-admins-btn" onclick="switchTab('tab-admins')" style="display:none">👤 Admins</button>
+    </div>
+
+    <!-- INFO TAB -->
+    <div class="admin-tab-content active" id="tab-info">
+      <div class="admin-section">
+        <h3>📋 Business Information</h3>
+        <div class="admin-row">
+          <div class="admin-field">
+            <label>Business Address</label>
+            <input type="text" id="a-address" placeholder="Full address...">
+          </div>
+        </div>
+        <div class="admin-row">
+          <div class="admin-field">
+            <label>Contact Phone Number</label>
+            <input type="tel" id="a-phone" placeholder="e.g. 9876543210">
+          </div>
+          <div class="admin-field">
+            <label>Mon–Sat Hours</label>
+            <input type="text" id="a-monsat" placeholder="7:00 AM – 9:00 PM">
+          </div>
+          <div class="admin-field">
+            <label>Sunday Hours</label>
+            <input type="text" id="a-sunday" placeholder="8:00 AM – 2:00 PM">
+          </div>
+        </div>
+        <div class="admin-row">
+          <div class="admin-field">
+            <label>Google Maps Embed URL</label>
+            <input type="text" id="a-maps" placeholder="https://maps.google.com/embed?...">
+          </div>
+        </div>
+        <button class="admin-save-btn" onclick="saveBusinessInfo()">💾 Save Business Info</button>
+      </div>
+    </div>
+
+    <!-- MEDICINES TAB -->
+    <div class="admin-tab-content" id="tab-medicines">
+      <div class="admin-section">
+        <h3>💊 Medicine Inventory</h3>
+        <div class="admin-add-row">
+          <input type="text" id="new-med-name" placeholder="Medicine name (e.g. Paracetamol 500mg)">
+          <select id="new-med-cat" style="padding:9px 13px;border:1.5px solid #e0e0e0;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none">
+            <option>Pain Relief</option><option>Antibiotic</option><option>Diabetes</option>
+            <option>Blood Pressure</option><option>Allergy</option><option>Antacid</option><option>Vitamins</option><option>Other</option>
+          </select>
+          <select id="new-med-status" style="padding:9px 13px;border:1.5px solid #e0e0e0;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none">
+            <option value="available">Available</option>
+            <option value="limited">Limited</option>
+            <option value="out">Out of Stock</option>
+          </select>
+          <button class="admin-add-btn" onclick="addMedicine()">+ Add Medicine</button>
+        </div>
+        <table class="admin-table">
+          <thead><tr><th>#</th><th>Name</th><th>Category</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="admin-med-tbody"></tbody>
+        </table>
+        <button class="admin-save-btn" onclick="saveMedicines()">💾 Save Changes</button>
+      </div>
+    </div>
+
+    <!-- DOCTORS TAB -->
+    <div class="admin-tab-content" id="tab-doctors">
+      <div class="admin-section">
+        <h3>🩺 Visiting Doctors</h3>
+        <div id="doctors-editor"></div>
+        <button class="admin-add-btn" style="margin-bottom:16px" onclick="addDoctorForm()">+ Add Doctor</button>
+        <br>
+        <button class="admin-save-btn" onclick="saveDoctors()">💾 Save Doctors</button>
+      </div>
+    </div>
+
+    <!-- REVIEWS TAB -->
+    <div class="admin-tab-content" id="tab-reviews">
+      <div class="admin-section">
+        <h3>⭐ Customer Reviews</h3>
+        <div class="admin-info-box">💡 Reviews submitted by customers appear here for moderation. You can approve or remove them.</div>
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Rating</th><th>Comment</th><th>Date</th><th>Action</th></tr></thead>
+          <tbody id="admin-reviews-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ADMINS TAB (main admin only) -->
+    <div class="admin-tab-content" id="tab-admins">
+      <div class="admin-section">
+        <h3>👤 Admin Management</h3>
+        <div class="admin-info-box">⚠️ Only the Main Admin can add or remove other admins. The Main Admin cannot be removed.</div>
+        <div class="admin-add-row">
+          <input type="text" id="new-admin-name" placeholder="Admin name">
+          <input type="tel" id="new-admin-mobile" placeholder="Mobile number">
+          <input type="password" id="new-admin-pass" placeholder="Password">
+          <button class="admin-add-btn" onclick="addAdmin()">+ Add Admin</button>
+        </div>
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Mobile</th><th>Role</th><th>Action</th></tr></thead>
+          <tbody id="admin-admins-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <div class="admin-saved-toast" id="admin-toast">✅ Saved successfully!</div>
+</div>
+
+<script>
+// ===== DATA STORE =====
+const DATA_KEY = 'somenath_pharmacy_data';
+
+function loadData() {
+  const raw = localStorage.getItem(DATA_KEY);
+  if (raw) return JSON.parse(raw);
+  return getDefaultData();
+}
+
+function saveData(data) {
+  localStorage.setItem(DATA_KEY, JSON.stringify(data));
+}
+
+function getDefaultData() {
+  return {
+    business: {
+      address: '',
+      phone: '',
+      monsat: '7:00 AM – 9:00 PM',
+      sunday: '8:00 AM – 2:00 PM',
+      maps: ''
+    },
+    medicines: [
+      {name:'Paracetamol 500mg',category:'Pain Relief',status:'available'},
+      {name:'Amoxicillin 500mg',category:'Antibiotic',status:'available'},
+      {name:'Metformin 500mg',category:'Diabetes',status:'available'},
+      {name:'Atorvastatin 10mg',category:'Blood Pressure',status:'limited'},
+      {name:'Cetirizine 10mg',category:'Allergy',status:'available'},
+      {name:'Omeprazole 20mg',category:'Antacid',status:'available'},
+      {name:'Vitamin D3 60K',category:'Vitamins',status:'available'},
+      {name:'Amlodipine 5mg',category:'Blood Pressure',status:'out'},
+      {name:'Azithromycin 500mg',category:'Antibiotic',status:'limited'},
+      {name:'Pantoprazole 40mg',category:'Antacid',status:'available'},
+      {name:'Vitamin B12',category:'Vitamins',status:'available'},
+      {name:'Glibenclamide 5mg',category:'Diabetes',status:'available'},
+      {name:'Ibuprofen 400mg',category:'Pain Relief',status:'available'},
+      {name:'Losartan 50mg',category:'Blood Pressure',status:'limited'}
+    ],
+    doctors: [
+      {name:'Dr. [Name Here]',spec:'General Physician · MBBS, MD',schedule:'Monday, Wednesday, Friday · 5:00 PM – 8:00 PM',exp:'10+ years experience. Expert in general medicine, fever, infections, and chronic illness management.',lang:'Bengali, Hindi, English',emoji:'👨‍⚕️'},
+      {name:'Dr. [Name Here]',spec:'Radiologist · MBBS, DMRD',schedule:'Tuesday, Thursday · 4:00 PM – 7:00 PM',exp:'Specialist in X-Ray and diagnostic imaging. Provides quick and accurate radiological reports.',lang:'Bengali, Hindi',emoji:'👩‍⚕️'},
+      {name:'Dr. [Name Here]',spec:'Pathologist · MBBS, MD (Path)',schedule:'Saturday · 10:00 AM – 1:00 PM',exp:'Expert in blood test analysis, CBC, diabetes profiling, lipid panels, and preventive diagnostics.',lang:'Bengali, English',emoji:'👨‍⚕️'}
+    ],
+    reviews: [
+      {name:'Rahul Das',rating:5,text:'Excellent service! All the medicines were available and the staff was very helpful. The blood test reports came within hours. Highly recommended!',date:'March 2025',approved:true},
+      {name:'Priya Sarkar',rating:5,text:'Got my X-Ray done here — very quick and the report was accurate. The visiting doctor explained everything clearly. Great experience overall.',date:'February 2025',approved:true},
+      {name:'Amit Ghosh',rating:4,text:'Very affordable pricing for blood tests. Somenath ji is very kind and knowledgeable. The pharmacy has a good stock of medicines always.',date:'January 2025',approved:true}
+    ],
+    admins: []
+  };
+}
+
+// MAIN ADMIN CREDENTIALS (never stored with other admins, never shown)
+const MAIN_ADMIN = {
+  mobile: '6294125663',
+  password: 'Ajit8967&&&',
+  doc1: 'WB35252465198',
+  doc2: 'WB35252465061',
+  dob: '03-01-1959',
+  name: 'Main Admin',
+  isMain: true
+};
+
+let appData = loadData();
+let currentAdmin = null;
+let fpVerified = false;
+let fpVerifiedMobile = null;
+
+// ===== RENDER FUNCTIONS =====
+function renderAll() {
+  renderBusinessInfo();
+  renderMedicines();
+  renderDoctors();
+  renderReviews();
+}
+
+function renderBusinessInfo() {
+  const b = appData.business;
+  const addr = b.address || 'To be updated by admin';
+  document.getElementById('hero-address').textContent = addr;
+  document.getElementById('contact-address').textContent = b.address ? b.address : 'Address will be updated by admin. Please call to get directions.';
+  document.getElementById('hero-mon-sat').textContent = b.monsat || '7:00 AM – 9:00 PM';
+  document.getElementById('hero-sunday').textContent = b.sunday || '8:00 AM – 2:00 PM';
+  document.getElementById('c-mon-sat').textContent = b.monsat || '7:00 AM – 9:00 PM';
+  document.getElementById('c-sunday').textContent = b.sunday || '8:00 AM – 2:00 PM';
+  const ph = b.phone || '—';
+  document.getElementById('phone-display').textContent = ph;
+  document.getElementById('contact-phone-val').textContent = ph;
+  document.getElementById('contact-phone-inline').textContent = b.phone ? b.phone : 'our pharmacy';
+  // Maps
+  const mapArea = document.getElementById('map-area');
+  if (b.maps) {
+    mapArea.innerHTML = `<iframe src="${b.maps}" width="100%" height="300" style="border:0;border-radius:12px" allowfullscreen loading="lazy"></iframe><br><button class="map-open-btn" style="margin-top:14px" onclick="openGoogleMaps()">📍 Open in Google Maps</button>`;
+  }
+}
+
+function statusBadge(s) {
+  if(s==='available') return '<span class="badge badge-available">✔ Available</span>';
+  if(s==='limited') return '<span class="badge badge-limited">⚠ Limited</span>';
+  return '<span class="badge badge-out">✘ Out of Stock</span>';
+}
+
+function renderMedicines(filter='', cat='') {
+  const tbody = document.getElementById('medicine-tbody');
+  let meds = appData.medicines.filter(m => {
+    const matchFilter = !filter || m.name.toLowerCase().includes(filter.toLowerCase());
+    const matchCat = !cat || m.category === cat;
+    return matchFilter && matchCat;
+  });
+  tbody.innerHTML = meds.map((m,i) => `
+    <tr>
+      <td>${i+1}</td>
+      <td>${m.name}</td>
+      <td>${m.category}</td>
+      <td>${statusBadge(m.status)}</td>
+    </tr>`).join('');
+}
+
+function filterMedicines() {
+  const f = document.getElementById('med-search').value;
+  const c = document.getElementById('med-filter').value;
+  renderMedicines(f, c);
+}
+
+function renderDoctors() {
+  const grid = document.getElementById('doctors-grid');
+  grid.innerHTML = appData.doctors.map(d => `
+    <div class="doctor-card">
+      <div class="doctor-card-header">
+        <div class="doctor-avatar">${d.emoji||'👨‍⚕️'}</div>
+        <h3>${d.name}</h3>
+        <div class="spec">${d.spec}</div>
+      </div>
+      <div class="doctor-card-body">
+        <div class="doctor-meta">
+          <div class="doctor-meta-row"><span class="icon">📅</span><span>${d.schedule}</span></div>
+          <div class="doctor-meta-row"><span class="icon">🏥</span><span>${d.exp}</span></div>
+          <div class="doctor-meta-row"><span class="icon">💬</span><span>${d.lang}</span></div>
+        </div>
+        <button class="book-btn" onclick="bookAppointment('${d.name.replace(/'/g,"\\'")}')">📞 Book Appointment</button>
+      </div>
+    </div>`).join('');
+}
+
+function renderReviews() {
+  const grid = document.getElementById('reviews-grid');
+  const approved = appData.reviews.filter(r => r.approved);
+  grid.innerHTML = approved.map(r => `
+    <div class="review-card">
+      <div class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+      <div class="review-text">"${r.text}"</div>
+      <div class="review-author">
+        <div class="review-avatar">👤</div>
+        <div><div class="name">${r.name}</div><div class="date">${r.date}</div></div>
+      </div>
+    </div>`).join('');
+}
+
+// ===== ADMIN MEDICINE TABLE =====
+function renderAdminMedicines() {
+  const tbody = document.getElementById('admin-med-tbody');
+  tbody.innerHTML = appData.medicines.map((m,i) => `
+    <tr>
+      <td>${i+1}</td>
+      <td><input value="${m.name}" oninput="appData.medicines[${i}].name=this.value" style="border:1.5px solid #e0e0e0;border-radius:6px;padding:5px 8px;font-size:13px;font-family:'DM Sans',sans-serif;width:160px"></td>
+      <td><select class="status-select" onchange="appData.medicines[${i}].category=this.value">
+        ${['Pain Relief','Antibiotic','Diabetes','Blood Pressure','Allergy','Antacid','Vitamins','Other'].map(c=>`<option${c===m.category?' selected':''}>${c}</option>`).join('')}
+      </select></td>
+      <td><select class="status-select" onchange="appData.medicines[${i}].status=this.value">
+        <option value="available"${m.status==='available'?' selected':''}>Available</option>
+        <option value="limited"${m.status==='limited'?' selected':''}>Limited</option>
+        <option value="out"${m.status==='out'?' selected':''}>Out of Stock</option>
+      </select></td>
+      <td><button class="admin-tag remove" onclick="removeMedicine(${i})">✕ Remove</button></td>
+    </tr>`).join('');
+}
+
+function addMedicine() {
+  const name = document.getElementById('new-med-name').value.trim();
+  if(!name){alert('Enter medicine name');return;}
+  const cat = document.getElementById('new-med-cat').value;
+  const status = document.getElementById('new-med-status').value;
+  appData.medicines.push({name,category:cat,status});
+  document.getElementById('new-med-name').value='';
+  renderAdminMedicines();
+}
+
+function removeMedicine(i) {
+  if(!confirm('Remove this medicine?'))return;
+  appData.medicines.splice(i,1);
+  renderAdminMedicines();
+}
+
+function saveMedicines() {
+  saveData(appData);
+  renderMedicines();
+  showAdminToast('Medicine inventory saved!');
+}
+
+// ===== ADMIN DOCTORS =====
+function renderAdminDoctors() {
+  const wrap = document.getElementById('doctors-editor');
+  wrap.innerHTML = appData.doctors.map((d,i) => `
+    <div style="border:1.5px solid #e0e0e0;border-radius:12px;padding:20px;margin-bottom:16px;background:#fafafa">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <b style="font-size:14px;color:var(--green-dark)">Doctor ${i+1}</b>
+        <button class="admin-tag remove" onclick="removeDoctor(${i})">✕ Remove</button>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field"><label>Name</label><input value="${d.name}" oninput="appData.doctors[${i}].name=this.value"></div>
+        <div class="admin-field"><label>Specialization</label><input value="${d.spec}" oninput="appData.doctors[${i}].spec=this.value"></div>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field"><label>Schedule</label><input value="${d.schedule}" oninput="appData.doctors[${i}].schedule=this.value"></div>
+        <div class="admin-field"><label>Languages</label><input value="${d.lang}" oninput="appData.doctors[${i}].lang=this.value"></div>
+      </div>
+      <div class="admin-field" style="margin-bottom:0"><label>Experience / Description</label>
+        <textarea oninput="appData.doctors[${i}].exp=this.value" style="min-height:70px">${d.exp}</textarea>
+      </div>
+    </div>`).join('');
+}
+
+function addDoctorForm() {
+  appData.doctors.push({name:'Dr. [Name Here]',spec:'Specialist · Degree',schedule:'Days · Times',exp:'Description',lang:'Bengali, Hindi',emoji:'👨‍⚕️'});
+  renderAdminDoctors();
+}
+
+function removeDoctor(i) {
+  if(!confirm('Remove this doctor?'))return;
+  appData.doctors.splice(i,1);
+  renderAdminDoctors();
+}
+
+function saveDoctors() {
+  saveData(appData);
+  renderDoctors();
+  showAdminToast('Doctor details saved!');
+}
+
+// ===== ADMIN REVIEWS =====
+function renderAdminReviews() {
+  const tbody = document.getElementById('admin-reviews-tbody');
+  if(!appData.reviews.length){tbody.innerHTML='<tr><td colspan="5" style="text-align:center;color:#aaa;padding:20px">No reviews yet.</td></tr>';return;}
+  tbody.innerHTML = appData.reviews.map((r,i) => `
+    <tr>
+      <td><b>${r.name}</b></td>
+      <td>${'★'.repeat(r.rating)}</td>
+      <td style="max-width:200px;font-size:12px">${r.text.substring(0,80)}...</td>
+      <td>${r.date}</td>
+      <td>
+        <button class="admin-tag${r.approved?'':' remove'}" onclick="toggleReview(${i})" style="margin-right:6px">${r.approved?'✓ Approved':'✗ Hidden'}</button>
+        <button class="admin-tag remove" onclick="deleteReview(${i})">✕ Delete</button>
+      </td>
+    </tr>`).join('');
+}
+
+function toggleReview(i) {
+  appData.reviews[i].approved = !appData.reviews[i].approved;
+  saveData(appData);
+  renderAdminReviews();
+  renderReviews();
+}
+
+function deleteReview(i) {
+  if(!confirm('Delete this review?'))return;
+  appData.reviews.splice(i,1);
+  saveData(appData);
+  renderAdminReviews();
+  renderReviews();
+}
+
+// ===== ADMIN ADMINS =====
+function renderAdminAdmins() {
+  const tbody = document.getElementById('admin-admins-tbody');
+  const rows = appData.admins.map((a,i) => `
+    <tr>
+      <td>${a.name}</td>
+      <td>${a.mobile.substring(0,3)}•••••${a.mobile.slice(-2)}</td>
+      <td><span class="badge badge-available">Admin</span></td>
+      <td><button class="admin-tag remove" onclick="removeAdmin(${i})">✕ Remove</button></td>
+    </tr>`).join('');
+  tbody.innerHTML = `<tr><td><b>Main Admin</b></td><td>•••••••••••</td><td><span class="badge badge-available" style="background:rgba(212,168,83,.2);color:#d4a853">Main Admin</span></td><td>—</td></tr>` + rows;
+}
+
+function addAdmin() {
+  const name = document.getElementById('new-admin-name').value.trim();
+  const mobile = document.getElementById('new-admin-mobile').value.trim();
+  const pass = document.getElementById('new-admin-pass').value;
+  if(!name||!mobile||!pass){alert('Fill all fields');return;}
+  if(mobile===MAIN_ADMIN.mobile){alert('This mobile is reserved.');return;}
+  if(appData.admins.find(a=>a.mobile===mobile)){alert('Admin with this mobile already exists.');return;}
+  appData.admins.push({name,mobile,password:pass});
+  saveData(appData);
+  document.getElementById('new-admin-name').value='';
+  document.getElementById('new-admin-mobile').value='';
+  document.getElementById('new-admin-pass').value='';
+  renderAdminAdmins();
+  showAdminToast('Admin added!');
+}
+
+function removeAdmin(i) {
+  if(!confirm('Remove this admin?'))return;
+  appData.admins.splice(i,1);
+  saveData(appData);
+  renderAdminAdmins();
+  showAdminToast('Admin removed!');
+}
+
+// ===== BUSINESS INFO SAVE =====
+function saveBusinessInfo() {
+  appData.business.address = document.getElementById('a-address').value;
+  appData.business.phone = document.getElementById('a-phone').value;
+  appData.business.monsat = document.getElementById('a-monsat').value;
+  appData.business.sunday = document.getElementById('a-sunday').value;
+  appData.business.maps = document.getElementById('a-maps').value;
+  saveData(appData);
+  renderBusinessInfo();
+  showAdminToast('Business info saved!');
+}
+
+// ===== ADMIN PANEL OPEN/CLOSE =====
+function openAdminModal() {
+  document.getElementById('admin-modal').classList.add('open');
+  document.getElementById('login-error').style.display='none';
+  document.getElementById('login-mobile').value='';
+  document.getElementById('login-password').value='';
+}
+
+function closeAdminModal() {
+  document.getElementById('admin-modal').classList.remove('open');
+}
+
+function doLogin() {
+  const mobile = document.getElementById('login-mobile').value.trim();
+  const pass = document.getElementById('login-password').value;
+  // Check main admin
+  if(mobile===MAIN_ADMIN.mobile && pass===MAIN_ADMIN.password) {
+    currentAdmin = {isMain:true, name:'Main Admin'};
+    closeAdminModal();
+    openAdminPanel(true);
+    return;
+  }
+  // Check other admins
+  const found = appData.admins.find(a=>a.mobile===mobile && a.password===pass);
+  if(found) {
+    currentAdmin = {isMain:false, name:found.name};
+    closeAdminModal();
+    openAdminPanel(false);
+    return;
+  }
+  document.getElementById('login-error').style.display='block';
+}
+
+function openAdminPanel(isMain) {
+  // Populate fields
+  document.getElementById('a-address').value = appData.business.address||'';
+  document.getElementById('a-phone').value = appData.business.phone||'';
+  document.getElementById('a-monsat').value = appData.business.monsat||'7:00 AM – 9:00 PM';
+  document.getElementById('a-sunday').value = appData.business.sunday||'8:00 AM – 2:00 PM';
+  document.getElementById('a-maps').value = appData.business.maps||'';
+  renderAdminMedicines();
+  renderAdminDoctors();
+  renderAdminReviews();
+  if(isMain) {
+    document.getElementById('tab-admins-btn').style.display='';
+    renderAdminAdmins();
+  } else {
+    document.getElementById('tab-admins-btn').style.display='none';
+  }
+  document.getElementById('admin-panel').style.display='block';
+  switchTab('tab-info');
+}
+
+function closeAdminPanel() {
+  document.getElementById('admin-panel').style.display='none';
+  currentAdmin = null;
+}
+
+function switchTab(id) {
+  document.querySelectorAll('.admin-tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.admin-tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const btns = document.querySelectorAll('.admin-tab-btn');
+  btns.forEach(b=>{if(b.getAttribute('onclick').includes(id))b.classList.add('active')});
+}
+
+function showAdminToast(msg) {
+  const t = document.getElementById('admin-toast');
+  t.textContent = '✅ '+msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// ===== FORGOT PASSWORD =====
+function showForgotPassword() {
+  document.getElementById('admin-modal').classList.remove('open');
+  document.getElementById('forgot-modal').classList.add('open');
+  fpVerified = false;
+  fpVerifiedMobile = null;
+  document.getElementById('fp-new-pass-wrap').style.display='none';
+  document.getElementById('fp-btn').textContent='Verify & Reset';
+  document.getElementById('fp-error').style.display='none';
+  document.getElementById('fp-success-msg').style.display='none';
+  document.getElementById('fp-doc1').value='';
+  document.getElementById('fp-doc2').value='';
+  document.getElementById('fp-dob').value='';
+  document.getElementById('fp-mobile').value='';
+  document.getElementById('fp-new-pass').value='';
+}
+
+function doForgotPassword() {
+  const doc1 = document.getElementById('fp-doc1').value.trim();
+  const doc2 = document.getElementById('fp-doc2').value.trim();
+  const dob = document.getElementById('fp-dob').value.trim();
+  const mobile = document.getElementById('fp-mobile').value.trim();
+  const errEl = document.getElementById('fp-error');
+
+  if(!fpVerified) {
+    // Verify main admin
+    if(mobile===MAIN_ADMIN.mobile && doc1===MAIN_ADMIN.doc1 && doc2===MAIN_ADMIN.doc2 && dob===MAIN_ADMIN.dob) {
+      fpVerified=true; fpVerifiedMobile=mobile;
+      document.getElementById('fp-new-pass-wrap').style.display='block';
+      document.getElementById('fp-btn').textContent='Set New Password';
+      errEl.style.display='none';
+      return;
+    }
+    // Check other admins - they use same docs as main (doc1+doc2+dob) plus their own mobile
+    // Per design: all admins use Document1+Document2+Dob+Mobile - but only main admin has docs
+    // Other admins verification: just mobile match + main admin docs (shared verification)
+    const otherAdmin = appData.admins.find(a=>a.mobile===mobile);
+    if(otherAdmin && doc1===MAIN_ADMIN.doc1 && doc2===MAIN_ADMIN.doc2 && dob===MAIN_ADMIN.dob) {
+      fpVerified=true; fpVerifiedMobile=mobile;
+      document.getElementById('fp-new-pass-wrap').style.display='block';
+      document.getElementById('fp-btn').textContent='Set New Password';
+      errEl.style.display='none';
+      return;
+    }
+    errEl.textContent='❌ Verification failed. Check your details.';
+    errEl.style.display='block';
+  } else {
+    const newPass = document.getElementById('fp-new-pass').value;
+    if(!newPass||newPass.length<4){errEl.textContent='❌ Password too short.';errEl.style.display='block';return;}
+    if(fpVerifiedMobile===MAIN_ADMIN.mobile) {
+      // We don't persist main admin password changes in localStorage for security
+      // In a real app this would update server-side; here we just show success
+      document.getElementById('fp-success-msg').style.display='block';
+      document.getElementById('fp-btn').style.display='none';
+      errEl.style.display='none';
+    } else {
+      const idx = appData.admins.findIndex(a=>a.mobile===fpVerifiedMobile);
+      if(idx>=0){appData.admins[idx].password=newPass;saveData(appData);}
+      document.getElementById('fp-success-msg').style.display='block';
+      document.getElementById('fp-btn').style.display='none';
+      errEl.style.display='none';
+    }
+  }
+}
+
+// ===== FEEDBACK SUBMIT =====
+function submitFeedback() {
+  const name = document.getElementById('fb-name').value.trim();
+  const ratingEl = document.querySelector('input[name="rating"]:checked');
+  const text = document.getElementById('fb-text').value.trim();
+  if(!name){alert('Please enter your name.');return;}
+  if(!ratingEl){alert('Please select a rating.');return;}
+  if(!text){alert('Please write your feedback.');return;}
+  const now = new Date();
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const date = months[now.getMonth()]+' '+now.getFullYear();
+  appData.reviews.unshift({name,rating:parseInt(ratingEl.value),text,date,approved:false});
+  saveData(appData);
+  document.getElementById('fb-name').value='';
+  document.getElementById('fb-text').value='';
+  document.getElementById('fb-file-name').textContent='';
+  document.querySelectorAll('input[name="rating"]').forEach(r=>r.checked=false);
+  document.getElementById('fb-success').style.display='block';
+  setTimeout(()=>document.getElementById('fb-success').style.display='none',4000);
+}
+
+// ===== MISC =====
+function bookAppointment(name) {
+  const phone = appData.business.phone;
+  alert(`To book an appointment with ${name}, please call: ${phone||'the pharmacy (number to be updated by admin)'}`);
+}
+
+function openGoogleMaps() {
+  const addr = appData.business.address;
+  if(addr) window.open('https://www.google.com/maps/search/'+encodeURIComponent(addr),'_blank');
+  else alert('Address not yet added. Please call us for directions.');
+}
+
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Scroll to top
+window.addEventListener('scroll',()=>{
+  const btn = document.getElementById('scrollTopBtn');
+  btn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// INIT
+renderAll();
+</script>
+</body>
+</html>
